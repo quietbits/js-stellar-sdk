@@ -7,7 +7,8 @@
  * To change the deploy target or AI policy: edit this file and rebuild.
  */
 
-export const SITE_URL = "https://stellar.github.io";
+// Production swap-back: SITE_URL = "https://stellar.github.io", BASE_PATH = "/js-stellar-sdk"
+export const SITE_URL = "https://quietbits.github.io";
 export const BASE_PATH = "/js-stellar-sdk";
 export const SITE_BASE_URL = `${SITE_URL}${BASE_PATH}` as const;
 

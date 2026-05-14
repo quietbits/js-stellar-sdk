@@ -1,13 +1,21 @@
-name: Docs build
+name: Docs deploy
 
 on:
-  pull_request:
+  push:
+    branches: [new-docs]
+  workflow_dispatch:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  check:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,17 +43,21 @@ jobs:
           path: .astro
           key: astro-${{ hashFiles('astro.config.mjs', 'pnpm-lock.yaml') }}
 
-      - name: Build reference docs
-        run: pnpm docs:reference
+      - name: Build docs
+        run: pnpm docs
 
-      - name: Build llms.txt bundles
-        run: pnpm docs:llms
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/site
 
-      - name: Verify generated docs are up to date
-        run: git diff --exit-code -- docs/
-
-      - name: Generate robots.txt from config
-        run: pnpm docs:robots
-
-      - name: Build Starlight site
-        run: pnpm docs:site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
