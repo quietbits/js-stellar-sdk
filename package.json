@@ -91,7 +91,7 @@
     "postbuild:lib:axios": "node config/write-module-type.js lib/axios/cjs commonjs",
     "clean": "rm -rf lib/ dist/ coverage/ jsdoc/ test/e2e/.soroban",
     "clean:bundle-size": "rm -rf node_modules lib/ dist/ coverage/ jsdoc/ test/e2e/.soroban",
-    "docs": "pnpm docs:reference && pnpm docs:llms && pnpm docs:robots && pnpm docs:site",
+    "docs": "pnpm run docs:reference && pnpm run docs:llms && pnpm run docs:robots && pnpm run docs:site",
     "docs:reference": "tsx scripts/build-docs.ts",
     "docs:llms": "tsx scripts/build-llms.ts",
     "docs:robots": "tsx scripts/build-robots.ts",

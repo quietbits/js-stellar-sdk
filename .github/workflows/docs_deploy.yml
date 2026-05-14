@@ -44,7 +44,7 @@ jobs:
           key: astro-${{ hashFiles('astro.config.mjs', 'pnpm-lock.yaml') }}
 
       - name: Build docs
-        run: pnpm docs
+        run: pnpm run docs
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
