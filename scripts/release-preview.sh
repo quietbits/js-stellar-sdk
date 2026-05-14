@@ -60,6 +60,7 @@ test -f bin/stellar-js
 test -f "${TARBALL}"
 
 gh release create "${TAG}" \
+  --repo quietbits/js-stellar-sdk \
   --target release-test \
   --prerelease \
   --title "${TAG} — release-test practice" \
