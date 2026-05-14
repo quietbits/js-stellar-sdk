@@ -1005,7 +1005,7 @@ export class AssembledTransaction<T> {
     signAuthEntry?: ClientOptions["signAuthEntry"];
 
     /**
-     * If you have a pro use-case and need to override the default `authorizeEntry` function, rather than using the one in `@stellar/stellar-base`, you can do that! Your function needs to take at least the first argument, `entry: xdr.SorobanAuthorizationEntry`, and return a `Promise<xdr.SorobanAuthorizationEntry>`.
+     * If you have a pro use-case and need to override the default `authorizeEntry` function, you can do that! Your function needs to take at least the first argument, `entry: xdr.SorobanAuthorizationEntry`, and return a `Promise<xdr.SorobanAuthorizationEntry>`.
      *
      * Note that you if you pass this, then `signAuthEntry` will be ignored.
      */

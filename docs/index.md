@@ -34,7 +34,6 @@ The library provides:
    - [...with CloudFlare Workers](#usage-with-cloudflare-workers)
  * [CLI](#cli): generate TypeScript bindings for Stellar smart contracts
  * [Developing](#developing): contribute to the project!
- * [Understanding `stellar-sdk` vs. `stellar-base`](#stellar-sdk-vs-stellar-base)
  * [License](#license)
 
 ## Installation
@@ -422,9 +421,6 @@ To generate and check the documentation site:
 # install the `serve` command if you don't have it already
 npm i -g serve
 
-# clone the base library for complete docs
-git clone https://github.com/stellar/js-stellar-base
-
 # generate the docs files
 pnpm run docs
 
@@ -439,14 +435,6 @@ cd jsdoc && serve .
 For information on how to contribute or publish new versions of this software to `npm`, please refer to our [contribution guide](https://github.com/stellar/js-stellar-sdk/blob/master/CONTRIBUTING.md).
 
 ## Miscellaneous
-
-### `stellar-sdk` vs `stellar-base`
-
-`stellar-sdk` is a high-level library that serves as client-side API for Horizon and Soroban RPC, while [`stellar-base](https://github.com/stellar/js-stellar-base) is lower-level library for creating Stellar primitive constructs via XDR helpers and wrappers.
-
-**Most people will want stellar-sdk instead of stellar-base.** You should only use stellar-base if you know what you're doing!
-
-If you add `stellar-sdk` to a project, **do not add `stellar-base`!** Mismatching versions could cause weird, hard-to-find bugs. `stellar-sdk` automatically installs `stellar-base` and exposes all of its exports in case you need them.
 
 ### License
 

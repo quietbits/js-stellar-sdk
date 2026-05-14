@@ -13,7 +13,7 @@ import { XdrLargeInt, type ScIntType } from "./xdr_large_int.js";
  *
  * @example
  * ```ts
- * import { xdr, ScInt, scValToBigInt } from "@stellar/stellar-base";
+ * import { xdr, ScInt, scValToBigInt } from "@stellar/stellar-sdk";
  *
  * // You have an ScVal from a contract and want to parse it into JS native.
  * const value = xdr.ScVal.fromXDR(someXdr, "base64");

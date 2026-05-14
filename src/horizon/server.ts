@@ -361,7 +361,7 @@ export class HorizonServer {
           "base64",
         );
 
-        // TODO: fix stellar-base types.
+        // TODO: fix base types.
         const results = (responseXDR as any).result().value();
 
         let offerResults;
@@ -369,7 +369,7 @@ export class HorizonServer {
 
         if (results.length) {
           offerResults = results
-            // TODO: fix stellar-base types.
+            // TODO: fix base types.
             .map((result: any, i: number) => {
               if (
                 result.value().switch().name !== "manageBuyOffer" &&
@@ -387,7 +387,7 @@ export class HorizonServer {
 
               const offersClaimed = offerSuccess
                 .offersClaimed()
-                // TODO: fix stellar-base types.
+                // TODO: fix base types.
                 .map((offerClaimedAtom: any) => {
                   const offerClaimed = offerClaimedAtom.value();
 
@@ -517,7 +517,7 @@ export class HorizonServer {
                   !offersClaimed.length && effect === "manageOfferDeleted",
               };
             })
-            // TODO: fix stellar-base types.
+            // TODO: fix base types.
             .filter((result: any) => !!result);
         }
 

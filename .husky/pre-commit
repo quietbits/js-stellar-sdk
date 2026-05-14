@@ -1,1 +1,13 @@
 pnpm exec lint-staged
+
+# Keep generated docs/ in sync with source. Fails the commit if regen
+# produces drift, so the fix can land in the same commit.
+pnpm run docs:reference || exit 1
+pnpm run docs:llms || exit 1
+if ! git diff --quiet -- docs/; then
+  echo ""
+  echo "Generated docs/ diverged from source. Stage the changes and re-commit:"
+  echo "  git add docs/"
+  git --no-pager diff --stat -- docs/
+  exit 1
+fi

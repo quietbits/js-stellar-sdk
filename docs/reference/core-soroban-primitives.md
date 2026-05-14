@@ -1195,7 +1195,7 @@ import {
   scValToNative,
   ScInt,
   xdr
-} from '@stellar/stellar-base';
+} from '@stellar/stellar-sdk';
 
 let gigaMap = {
   bool: true,

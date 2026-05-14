@@ -18,8 +18,6 @@
 # `pnpm docs:robots` (or `pnpm docs`) to (re)build.
 /public/robots.txt
 
-js-stellar-base/
-
 test/unit/out/
 target
 .soroban
